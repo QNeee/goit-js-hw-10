@@ -34,6 +34,7 @@ function onError() {
 function addMarkup(data) {
     if (data.length >= 2 && data.length < 10) {
         refs.div.innerHTML = "";
+        refs.ul.classList.add("ulclass");
         return refs.ul.innerHTML = listMarkup(data);
     }
     if (data.length > 10) {
@@ -42,6 +43,7 @@ function addMarkup(data) {
     }
     if (data.length === 1) {
         refs.ul.innerHTML = "";
+        refs.div.classList.add("divclass");
         return refs.div.innerHTML = listMarkupinfo(data);
     }
 

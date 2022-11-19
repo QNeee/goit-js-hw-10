@@ -18,3 +18,10 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+.ulclass {
+  list-style: none;
+  color: grey;
+}
+.divclass {
+  color: green;
+}
