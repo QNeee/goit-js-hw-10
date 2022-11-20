@@ -29,31 +29,19 @@ function onError() {
     Notify.failure('Oops, there is no country with that name');
 }
 function addMarkup(data) {
-    switch (data.length) {
-        case data.length >= 2 && data.length < 10:
-            refs.div.innerHTML = "";
-            refs.ul.innerHTML = listMarkup(data);
-            break;
-        case data.length === 1:
-            refs.ul.innerHTML = "";
-            refs.div.innerHTML = listMarkupInfo(data);
-            break;
-        case data.length > 10:
-            Notify.info('Too many matches found. Please enter a more specific name');
-            break;
-    }
-    // if (data.length >= 2 && data.length < 10) {
-    //     refs.div.innerHTML = "";
-    //     return refs.ul.innerHTML = listMarkup(data);
-    // }
-    // if (data.length > 10) {
-    //     return Notify.info('Too many matches found. Please enter a more specific name');
 
-    // }
-    // if (data.length === 1) {
-    //     refs.ul.innerHTML = "";
-    //     return refs.div.innerHTML = listMarkupinfo(data);
-    // }
+    if (data.length >= 2 && data.length < 10) {
+        refs.div.innerHTML = "";
+        return refs.ul.innerHTML = listMarkup(data);
+    }
+    if (data.length > 10) {
+        return Notify.info('Too many matches found. Please enter a more specific name');
+
+    }
+    if (data.length === 1) {
+        refs.ul.innerHTML = "";
+        return refs.div.innerHTML = listMarkupInfo(data);
+    }
 
 }
 function onInput(e) {
