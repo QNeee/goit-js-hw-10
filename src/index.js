@@ -9,9 +9,8 @@ const refs = {
     div: document.querySelector(".country-info")
 }
 function listMarkup(data) {
-    const initalAcc = `<div>`
     return data.reduce(((acc, data) =>
-        `${acc}<li class="ulclass"><img src="${data.flags.png}" alt="${data.name.official}" width="20" height="20">${data.name.official}</li>`), initalAcc) + `</div >`
+        `${acc}<li class="ulclass"><img src="${data.flags.png}" alt="${data.name.official}" width="20" height="20">${data.name.official}</li>`), "")
 
 };
 function listMarkupinfo(data) {
