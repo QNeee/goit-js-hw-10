@@ -38,7 +38,7 @@ function addMarkup(data) {
             refs.ul.innerHTML = "";
             refs.div.innerHTML = listMarkupInfo(data);
             break;
-        default:
+        case data.length > 10:
             Notify.info('Too many matches found. Please enter a more specific name');
             break;
     }
