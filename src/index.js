@@ -9,18 +9,18 @@ const refs = {
     div: document.querySelector(".country-info")
 }
 function listMarkup(data) {
-    return data.reduce(((acc, data) =>
-        `${acc}<li class="ulclass"><img src="${data.flags.png}" alt="${data.name.official}" width="20" height="20">${data.name.official}</li>`), "")
+    return data.reduce(((acc, { name, flags }) =>
+        `${acc}<li class="ulclass"><img src="${flags.png}" alt="${name.official}" width="20" height="20">${name.official}</li>`), "")
 
 };
 function listMarkupinfo(data) {
     return data.reduce(
-        ((acc, data) =>
-            `<h1><img src="${data.flags.png}" alt="${data.name.official}" width="40" height="40">${data.name.official
+        ((acc, { name, capital, population, flags, languages }) =>
+            `<h1><img src="${flags.png}" alt="${name.official}" width="40" height="40">${name.official
             }</h1>
-      <p>Capital: ${data.capital}</p>
-      <p>Population: ${data.population}</p>
-      <p>Languages: ${Object.values(data.languages)}</p>`), {},
+      <p>Capital: ${capital}</p>
+      <p>Population: ${population}</p>
+      <p>Languages: ${Object.values(languages)}</p>`), {},
     );
 
 
