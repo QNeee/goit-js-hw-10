@@ -13,7 +13,7 @@ function listMarkup(data) {
         `${acc}<li class="ulclass"><img src="${flags.png}" alt="${name.official}" width="20" height="20">${name.official}</li>`), "")
 
 };
-function listMarkupinfo(data) {
+function listMarkupInfo(data) {
     return data.reduce(
         ((acc, { name, capital, population, flags, languages }) =>
             `<h1><img src="${flags.png}" alt="${name.official}" width="40" height="40">${name.official
@@ -29,18 +29,31 @@ function onError() {
     Notify.failure('Oops, there is no country with that name');
 }
 function addMarkup(data) {
-    if (data.length >= 2 && data.length < 10) {
-        refs.div.innerHTML = "";
-        return refs.ul.innerHTML = listMarkup(data);
+    switch (data) {
+        case data.length >= 2 && data.length < 10:
+            refs.div.innerHTML = "";
+            refs.ul.innerHTML = listMarkup(data);
+            break;
+        case data.length === 1:
+            refs.ul.innerHTML = "";
+            refs.div.innerHTML = listMarkupInfo(data);
+            break;
+        default:
+            Notify.info('Too many matches found. Please enter a more specific name');
+            break;
     }
-    if (data.length > 10) {
-        return Notify.info('Too many matches found. Please enter a more specific name');
+    // if (data.length >= 2 && data.length < 10) {
+    //     refs.div.innerHTML = "";
+    //     return refs.ul.innerHTML = listMarkup(data);
+    // }
+    // if (data.length > 10) {
+    //     return Notify.info('Too many matches found. Please enter a more specific name');
 
-    }
-    if (data.length === 1) {
-        refs.ul.innerHTML = "";
-        return refs.div.innerHTML = listMarkupinfo(data);
-    }
+    // }
+    // if (data.length === 1) {
+    //     refs.ul.innerHTML = "";
+    //     return refs.div.innerHTML = listMarkupinfo(data);
+    // }
 
 }
 function onInput(e) {
