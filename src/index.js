@@ -9,21 +9,19 @@ const refs = {
     div: document.querySelector(".country-info")
 }
 function listMarkup(data) {
-    return data.map(({ name, flags }) =>
-        `<li class="ulclass"><img src="${flags.png}" alt="${name.official}" width="20" height="20">${name.official}</li>`,
-    )
-        .join('');
+    const initalAcc = `<div>`
+    return data.reduce(((acc, data) =>
+        `${acc}<li class="ulclass"><img src="${data.flags.png}" alt="${data.name.official}" width="20" height="20">${data.name.official}</li>`), initalAcc) + `</div >`
 
 };
 function listMarkupinfo(data) {
-    return data.map(
-        ({ name, capital, population, flags, languages }) =>
-
-            `<h1><img src="${flags.png}" alt="${name.official}" width="40" height="40">${name.official
+    return data.reduce(
+        ((acc, data) =>
+            `<h1><img src="${data.flags.png}" alt="${data.name.official}" width="40" height="40">${data.name.official
             }</h1>
-      <p>Capital: ${capital}</p>
-      <p>Population: ${population}</p>
-      <p>Languages: ${Object.values(languages)}</p>`,
+      <p>Capital: ${data.capital}</p>
+      <p>Population: ${data.population}</p>
+      <p>Languages: ${Object.values(data.languages)}</p>`), {},
     );
 
 
