@@ -29,7 +29,7 @@ function onError() {
     Notify.failure('Oops, there is no country with that name');
 }
 function addMarkup(data) {
-    switch (data) {
+    switch (data.length) {
         case data.length >= 2 && data.length < 10:
             refs.div.innerHTML = "";
             refs.ul.innerHTML = listMarkup(data);
