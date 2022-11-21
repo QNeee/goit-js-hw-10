@@ -26,7 +26,7 @@ function listMarkupInfo(data) {
 
 };
 function onError() {
-    Notify.failure('Oops, there is no country with that name');
+    return Notify.failure('Oops, there is no country with that name');
 }
 function addMarkup(data) {
 
@@ -47,7 +47,7 @@ function addMarkup(data) {
 function onInput(e) {
     const textInput = e.target.value.trim();
     if (refs.input.value.length > 0) {
-        return fetchCountries(textInput).then(addMarkup).catch(onError);
+        fetchCountries(textInput).then(addMarkup).catch(onError);
     }
     refs.ul.innerHTML = "";
     refs.div.innerHTML = "";
