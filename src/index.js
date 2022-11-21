@@ -47,7 +47,7 @@ function addMarkup(data) {
 function onInput(e) {
     const textInput = e.target.value.trim();
     if (refs.input.value.length > 0) {
-        fetchCountries(textInput).then(addMarkup).catch(onError);
+        return fetchCountries(textInput).then(addMarkup).catch(onError);
     }
     refs.ul.innerHTML = "";
     refs.div.innerHTML = "";
